@@ -140,12 +140,6 @@ input[type="text"]:focus {
   border-color: #7e2cff;
 }
 
-input[type="checkbox"] {
-  width: 16px;
-  height: 16px;
-  cursor: pointer;
-  accent-color: #47034e; /* Oracle-like theme */
-}
 
 input {
   width: 100%;
