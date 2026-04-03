@@ -2,24 +2,9 @@ document.getElementById('generateBtn').addEventListener('click', () => {
   const appIdsInput = document.getElementById('appIds').value;
   const apiNamesInput = document.getElementById('apiNames').value;
 
-  const selectedRegion = document.querySelector('input[name="region"]:checked');
-
-  if (!appIdsInput || !apiNamesInput || !selectedRegion) {
-    alert('Please enter App IDs, API Names and select a Region!');
+  if (!appIdsInput || !apiNamesInput) {
+    alert('Please enter both App IDs and API Names!');
     return;
-  }
-
-  const region = selectedRegion.value;
-
-  // 🔥 Base URL mapping
-  let baseUrl = '';
-
-  if (region === 'NAMER') {
-    baseUrl = 'https://guidedlearning.oracle.com';
-  } else if (region === 'EMEA') {
-    baseUrl = 'https://guidedlearning-emea.oracle.com';
-  } else if (region === 'JAPAC') {
-    baseUrl = 'https://guidedlearning-japac.oracle.com';
   }
 
   const appIds = appIdsInput.split(' ').map(a => a.trim());
@@ -30,8 +15,7 @@ document.getElementById('generateBtn').addEventListener('click', () => {
 
   appIds.forEach(appId => {
     apiNames.forEach(apiName => {
-
-      const guideUrl = `${baseUrl}/player/latest/api/scenario/export/v2/${appId}/${apiName}/lang/--/?draft=dev&windowMode=unpin`;
+      const guideUrl = `https://guidedlearning.oracle.com/player/latest/api/scenario/export/v2/${appId}/${apiName}/lang/--/?draft=dev&windowMode=unpin`;
 
       const tr = document.createElement('tr');
       tr.innerHTML = `
